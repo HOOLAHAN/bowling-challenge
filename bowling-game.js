@@ -1,6 +1,6 @@
 class BowlingGame {
 
-  constructor() {
+  constructor(scoreCard) {
     this.scoreCard = []
   }
 
@@ -12,9 +12,12 @@ class BowlingGame {
     return this.scoreCard;
   }
 
-  total() {
-    const sum = [scoreCard].flat(2).reduce((partialSum, a) => partialSum + a, 0);
-    return sum;
+  frameNumber() {
+    return this.scoreCard.length;
+  }
+
+  total(scoreCard) {
+    return [scoreCard].flat(2).reduce((partialSum, a) => partialSum + a, 0);
   }
 
 }
