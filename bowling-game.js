@@ -22,7 +22,10 @@ class BowlingGame {
 
   applyBonus() {
     for (let i = 0; i < this.scoreCard.length; i++) {
-      if (this.scoreCard[i][0] + this.scoreCard[i][1] === 10) {
+      if (this.scoreCard[i][0] === 10) {
+        let bonus = this.scoreCard[i + 1][0] + this.scoreCard[i + 1][1]
+        this.scoreCard[i].push(bonus)
+      } else if (this.scoreCard[i][0] + this.scoreCard[i][1] === 10) {
         let bonus = this.scoreCard[i + 1][0]
         this.scoreCard[i].push(bonus)
       }

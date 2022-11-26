@@ -53,4 +53,14 @@ describe('BowlingGame', () => {
     expect(game.total()).toEqual(31);
   })
 
+  it('adds a bonus score when the player gets a strike', () => {
+    const game = new BowlingGame;
+    let scoreCardDouble = [[2, 4], [10, 0], [7, 1]] // bonus of 9
+    for (let i = 0; i < scoreCardDouble.length; i++) {
+    game.addScore(scoreCardDouble[i]);
+    }
+    game.applyBonus();
+    expect(game.total()).toEqual(32);
+  })
+
 })
