@@ -1,11 +1,15 @@
 class BowlingGame {
 
-  constructor(scoreCard) {
+  constructor() {
     this.scoreCard = []
   }
 
   addScore(score) {
-    this.scoreCard.push(score);
+    if (this.scoreCard.length < 10) {
+      return this.scoreCard.push(score);
+    } else {
+      return "Game Complete";
+    }
   }
 
   getScoreCard() {
@@ -16,8 +20,8 @@ class BowlingGame {
     return this.scoreCard.length;
   }
 
-  total(scoreCard) {
-    return [scoreCard].flat(2).reduce((partialSum, a) => partialSum + a, 0);
+  total() {
+    return [this.scoreCard].flat(2).reduce((partialSum, a) => partialSum + a, 0);
   }
 
 }
