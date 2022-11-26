@@ -55,12 +55,22 @@ describe('BowlingGame', () => {
 
   it('adds a bonus score when the player gets a strike', () => {
     const game = new BowlingGame;
-    let scoreCardDouble = [[2, 4], [10, 0], [7, 1]] // bonus of 9
+    let scoreCardDouble = [[2, 4], [10, 0], [7, 1]] // bonus of 8
     for (let i = 0; i < scoreCardDouble.length; i++) {
     game.addScore(scoreCardDouble[i]);
     }
     game.applyBonus();
     expect(game.total()).toEqual(32);
+  })
+
+  it('when a strike follows another strike the bonus roll is carried over into the next frame', () => {
+    const game = new BowlingGame;
+    let scoreCardDouble = [[10, 0], [10, 0], [7, 1]] // bonus of 17 and 8
+    for (let i = 0; i < scoreCardDouble.length; i++) {
+    game.addScore(scoreCardDouble[i]);
+    }
+    game.applyBonus();
+    expect(game.total()).toEqual(53);
   })
 
 })
