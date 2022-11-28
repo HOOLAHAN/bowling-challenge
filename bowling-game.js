@@ -1,8 +1,9 @@
 class BowlingGame {
 
-  constructor() {
+  constructor(game) {
     this.scoreCard = []
     this.frame = []
+    this.game = game
   }
 
   addScore(score) {
@@ -19,7 +20,6 @@ class BowlingGame {
     } else {
       return `There are ${10 - this.scoreCard.length} frames to go!`
     }
-    
   }
 
   frameNumber() {
@@ -76,6 +76,23 @@ class BowlingGame {
     return this.scoreCard;
   }
 
+  displayScorecard() {
+    let i = 0;
+    while (i < this.scoreCard.length) {
+    console.log(`Frame ${i + 1}: ${this.scoreCard[i]}`);
+    i++;
+    }
+  }
+
+  runGame() {
+    game.generate_rolls();
+    game.displayScorecard();
+    console.log(`TOTAL: ${game.total()}`);
+  }
+
 }
 
 module.exports = BowlingGame;
+
+const game = new BowlingGame;
+game.runGame();

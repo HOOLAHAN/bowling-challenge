@@ -1,3 +1,13 @@
+## HOW TO RUN:
+
+# Install gems
+bundle install
+
+# Run the tests
+jest
+
+# Run the game
+node bowling-game.js
 
 Bowling Challenge
 =================
