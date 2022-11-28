@@ -2,6 +2,7 @@ class BowlingGame {
 
   constructor() {
     this.scoreCard = []
+    this.frame = []
   }
 
   addScore(score) {
@@ -45,6 +46,34 @@ class BowlingGame {
 
   total() {
     return [this.scoreCard].flat(2).reduce((partialSum, a) => partialSum + a, 0);
+  }
+
+  generate_rolls() {
+    this.scoreCard = [];
+    for (let i = 0; i < 10; i++) {
+      this.frame = [];
+      let roll1 = Math.floor(Math.random() * 11);
+      this.frame.push(roll1);
+      if (i === 9 && (roll1 === 10)) { // STRIKE IN FINAL FRAME
+        let roll2 = Math.floor(Math.random() * 11);
+        this.frame.push(roll2);
+        let roll3 = Math.floor(Math.random() * 11);
+        this.frame.push(roll3);
+      } else if (i < 9) {
+        let roll2 = Math.floor(Math.random() * (11 - roll1));
+        this.frame.push(roll2);
+      }
+      if (i === 9 && (roll1 != 10)) { 
+        let roll2 = Math.floor(Math.random() * 11);
+        this.frame.push(roll2);
+        if (i === 9 && (roll1 + roll2 === 10)) { // SPARE IN FINAL FRAME
+          let roll3 = Math.floor(Math.random() * 11);
+          this.frame.push(roll3);
+        }
+      }
+      this.scoreCard.push(this.frame);
+      }
+    return this.scoreCard;
   }
 
 }

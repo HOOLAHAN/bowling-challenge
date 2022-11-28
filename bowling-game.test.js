@@ -92,4 +92,10 @@ describe('BowlingGame', () => {
     expect(game.total()).toEqual(300);
   })
 
+  it('generates random rolls for a 10 frame game', () => {
+    const game = new BowlingGame;
+    game.generate_rolls();
+    expect(game.getScoreCard().length).toEqual(10);
+  });
+
 })
