@@ -98,4 +98,24 @@ describe('BowlingGame', () => {
     expect(game.getScoreCard().length).toEqual(10);
   });
 
+  it('Strike in 8th frame', () => {
+    const game = new BowlingGame;
+    let scoreCardDouble = [[7, 2], [0, 7], [8, 0], [5, 1], [7, 3], [4, 1], [2, 4], [10, 0], [8, 1], [10, 7, 1]]
+    for (let i = 0; i < scoreCardDouble.length; i++) {
+    game.addScore(scoreCardDouble[i]);
+    }
+    game.applyBonus();
+    expect(game.total()).toEqual(101);
+  })
+
+  it('Spare in 8th frame', () => {
+    const game = new BowlingGame;
+    let scoreCardDouble = [[7, 2], [0, 7], [8, 0], [5, 1], [7, 3], [4, 1], [2, 4], [5, 5], [8, 1], [10, 7, 1]]
+    for (let i = 0; i < scoreCardDouble.length; i++) {
+    game.addScore(scoreCardDouble[i]);
+    }
+    game.applyBonus();
+    expect(game.total()).toEqual(100);
+  })
+
 })

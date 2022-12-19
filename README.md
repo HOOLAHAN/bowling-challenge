@@ -1,7 +1,7 @@
 # HOW TO RUN:
 
 ## Create a local copy of this repo
-````git clone https://github.com/HOOLAHAN/database_exercises/tree/main/3_Solo_Project_Shop_Manager````
+````git clone https://github.com/HOOLAHAN/bowling-challenge````
 
 ## Install dependencies
 ````bundle install````
@@ -11,6 +11,9 @@
 
 ## Run the game
 ````node bowling-game.js````
+
+## Example
+[alt text!](insert image url)
 
 Bowling Challenge
 =================
